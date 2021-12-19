@@ -181,7 +181,7 @@ public struct Jieqi {
         case xiaoxue, heavySnow
         case winterSolstice
         
-        var localizedString:String {
+        public var localizedString:String {
             switch self {
             case .xiaohan:
                 return NSLocalizedString("Xiaohan", comment: "")
