@@ -147,7 +147,7 @@ public struct Jieqi {
         case autumn
         case winter
         
-        var localizedString:String {
+        public var localizedString:String {
             switch self {
             case .spring:
                 return NSLocalizedString("Spring", comment: "")
