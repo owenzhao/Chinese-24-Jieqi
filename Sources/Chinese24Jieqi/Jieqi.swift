@@ -150,13 +150,13 @@ public struct Jieqi {
         public var localizedString:String {
             switch self {
             case .spring:
-                return NSLocalizedString("Spring", comment: "")
+                return NSLocalizedString("Spring", bundle: .module, comment: "")
             case .summer:
-                return NSLocalizedString("Summer", comment: "")
+                return NSLocalizedString("Summer", bundle: .module, comment: "")
             case .autumn:
-                return NSLocalizedString("Autumn", comment: "")
+                return NSLocalizedString("Autumn", bundle: .module, comment: "")
             case .winter:
-                return NSLocalizedString("Winter", comment: "")
+                return NSLocalizedString("Winter", bundle: .module, comment: "")
             }
         }
     }
@@ -184,57 +184,57 @@ public struct Jieqi {
         public var localizedString:String {
             switch self {
             case .xiaohan:
-                return NSLocalizedString("Xiaohan", comment: "")
+                return NSLocalizedString("Xiaohan", bundle: .module, comment: "")
             case .dahan:
-                return NSLocalizedString("Dahan", comment: "")
+                return NSLocalizedString("Dahan", bundle: .module, comment: "")
                 
             case .lichun:
-                return NSLocalizedString("Lichun", comment: "")
+                return NSLocalizedString("Lichun", bundle: .module, comment: "")
             case .rainwater:
-                return NSLocalizedString("Rainwater", comment: "")
+                return NSLocalizedString("Rainwater", bundle: .module, comment: "")
             case .jingzhe:
-                return NSLocalizedString("Jingzhe", comment: "")
+                return NSLocalizedString("Jingzhe", bundle: .module, comment: "")
             case .vernalEquinox:
-                return NSLocalizedString("Vernal Equinox", comment: "")
+                return NSLocalizedString("Vernal Equinox", bundle: .module, comment: "")
             case .chingming:
-                return NSLocalizedString("Ching Ming", comment: "")
+                return NSLocalizedString("Ching Ming", bundle: .module, comment: "")
             case .guyu:
-                return NSLocalizedString("Guyu", comment: "")
+                return NSLocalizedString("Guyu", bundle: .module, comment: "")
                 
             case .lixia:
-                return NSLocalizedString("Lixia", comment: "")
+                return NSLocalizedString("Lixia", bundle: .module, comment: "")
             case .xiaoman:
-                return NSLocalizedString("Xiaoman", comment: "")
+                return NSLocalizedString("Xiaoman", bundle: .module, comment: "")
             case .mango:
-                return NSLocalizedString("Mango", comment: "")
+                return NSLocalizedString("Mango", bundle: .module, comment: "")
             case .summerSolstice:
-                return NSLocalizedString("Summer Solstice", comment: "")
+                return NSLocalizedString("Summer Solstice", bundle: .module, comment: "")
             case .smallHeat:
-                return NSLocalizedString("Small Heat", comment: "")
+                return NSLocalizedString("Small Heat", bundle: .module, comment: "")
             case .greatHeat:
-                return NSLocalizedString("Great Heat", comment: "")
+                return NSLocalizedString("Great Heat", bundle: .module, comment: "")
                 
             case .beginningOfAutumn:
-                return NSLocalizedString("Beginning of Autumn", comment: "")
+                return NSLocalizedString("Beginning of Autumn", bundle: .module, comment: "")
             case .chushu:
-                return NSLocalizedString("Chushu", comment: "")
+                return NSLocalizedString("Chushu", bundle: .module, comment: "")
             case .whiteDew:
-                return NSLocalizedString("White Dew", comment: "")
+                return NSLocalizedString("White Dew", bundle: .module, comment: "")
             case .autumnEquinox:
-                return NSLocalizedString("Autumn Equinox", comment: "")
+                return NSLocalizedString("Autumn Equinox", bundle: .module, comment: "")
             case .coldDew:
-                return NSLocalizedString("Cold Dew", comment: "")
+                return NSLocalizedString("Cold Dew", bundle: .module, comment: "")
             case .frost:
-                return NSLocalizedString("Frost", comment: "")
+                return NSLocalizedString("Frost", bundle: .module, comment: "")
                 
             case .beginningOfWinter:
-                return NSLocalizedString("Beginning of Winter", comment: "")
+                return NSLocalizedString("Beginning of Winter", bundle: .module, comment: "")
             case .xiaoxue:
-                return NSLocalizedString("Xiaoxue", comment: "")
+                return NSLocalizedString("Xiaoxue", bundle: .module, comment: "")
             case .heavySnow:
-                return NSLocalizedString("Heavy Snow", comment: "")
+                return NSLocalizedString("Heavy Snow", bundle: .module, comment: "")
             case .winterSolstice:
-                return NSLocalizedString("Winter Solstice", comment: "")
+                return NSLocalizedString("Winter Solstice", bundle: .module, comment: "")
             }
         }
     }
