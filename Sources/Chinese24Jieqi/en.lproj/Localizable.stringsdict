@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>%d days later will be %@.</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@days@ later will be %@.</string>
+		<key>Variable</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>other</key>
+			<string>%d days</string>
+			<key>one</key>
+			<string>1 day</string>
+		</dict>
+	</dict>
+	<key>%d days ago was %@.</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@days@ ago was %@.</string>
+		<key>days</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>1 day</string>
+			<key>other</key>
+			<string>%d days</string>
+		</dict>
+	</dict>
+	<key>%@ would be in %d days.</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%@ would be in %#@days@.</string>
+		<key>days</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>1 day</string>
+			<key>other</key>
+			<string>%d days</string>
+		</dict>
+	</dict>
+	<key>%@ will be in %d days.</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%@ will be in %#@days@.</string>
+		<key>days</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>1 day</string>
+			<key>other</key>
+			<string>%d days</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
