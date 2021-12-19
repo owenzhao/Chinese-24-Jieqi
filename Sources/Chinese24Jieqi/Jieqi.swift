@@ -49,7 +49,7 @@ struct Jieqi {
     
     func at(_ date:Date) -> String {
         let today:Date = {
-            let now = Date.now
+            let now = Date()
             let cps = Jieqi.cal.dateComponents([.year,.month, .day], from: now)
             
             return Jieqi.cal.date(from: cps)!
