@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Jieqi {
-    static let cal = Calendar(identifier: .gregorian)
+public struct Jieqi {
+    public static let cal = Calendar(identifier: .gregorian)
     
     private func getjq(yyyy:Int, mm:Int, dd:Int) -> Name? {
         let mm = mm - 1
@@ -47,7 +47,7 @@ struct Jieqi {
         return solarTerms
     }
     
-    func at(_ date:Date) -> String {
+    public func at(_ date:Date) -> String {
         let today:Date = {
             let now = Date()
             let cps = Jieqi.cal.dateComponents([.year,.month, .day], from: now)
@@ -115,7 +115,7 @@ struct Jieqi {
         return nextJieqi(at: cps)
     }
     
-    func whichSeason(at date:Date) -> Season {
+    public func whichSeason(at date:Date) -> Season {
         let cps = Jieqi.cal.dateComponents([.year, .month, .day], from: date)
         
         if let jieqi = getjq(yyyy: cps.year!, mm: cps.month!, dd: cps.day!) {
@@ -139,7 +139,7 @@ struct Jieqi {
         }
     }
     
-    enum Season:String {
+    public enum Season:String {
         case spring
         case summer
         case autumn
@@ -159,7 +159,7 @@ struct Jieqi {
         }
     }
     
-    enum Name:CaseIterable {
+    public enum Name:CaseIterable {
         case xiaohan, dahan
         
         case lichun, rainwater, jingzhe
