@@ -10,6 +10,8 @@ import Foundation
 public struct Jieqi {
     public static let cal = Calendar(identifier: .gregorian)
     
+    public init() {}
+    
     private func getjq(yyyy:Int, mm:Int, dd:Int) -> Name? {
         let mm = mm - 1
         
