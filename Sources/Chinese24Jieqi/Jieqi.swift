@@ -97,7 +97,7 @@ public struct Jieqi {
     
     private func previousJieqi(at cps:DateComponents) -> (Name, DateComponents) {
         var cps = cps
-        cps.day! -= 1
+        getPreviousDay(&cps)
         
         print(cps)
         print()
@@ -109,15 +109,35 @@ public struct Jieqi {
         return previousJieqi(at: cps)
     }
     
+    private func getPreviousDay(_ cps:inout DateComponents) {
+        if cps.day! > 1 {
+            cps.day! -= 1
+        } else {
+            let date = Jieqi.cal.date(from: cps)!
+            let yesterday = Jieqi.cal.date(bySetting: .day, value: -1, of: date)!
+            cps = Jieqi.cal.dateComponents([.year, .month, .day], from: yesterday)
+        }
+    }
+    
     private func nextJieqi(at cps:DateComponents) -> (Name, DateComponents) {
         var cps = cps
-        cps.day! += 1
+        getNextDay(&cps)
 
         if let jieqi = getjq(yyyy: cps.year!, mm: cps.month!, dd: cps.day!) {
             return (jieqi, cps)
         }
         
         return nextJieqi(at: cps)
+    }
+    
+    private func getNextDay(_ cps:inout DateComponents) {
+        if cps.day! < 28 {
+            cps.day! += 1
+        } else {
+            let date = Jieqi.cal.date(from: cps)!
+            let tomorrow = Jieqi.cal.date(bySetting: .day, value: 1, of: date)!
+            cps = Jieqi.cal.dateComponents([.year, .month, .day], from: tomorrow)
+        }
     }
     
     public func whichSeason(at date:Date) -> Season {
