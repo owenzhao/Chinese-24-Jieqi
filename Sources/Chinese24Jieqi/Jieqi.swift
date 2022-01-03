@@ -99,9 +99,6 @@ public struct Jieqi {
         var cps = cps
         getPreviousDay(&cps)
         
-        print(cps)
-        print()
-        
         if let jieqi = getjq(yyyy: cps.year!, mm: cps.month!, dd: cps.day!) {
             return (jieqi, cps)
         }
