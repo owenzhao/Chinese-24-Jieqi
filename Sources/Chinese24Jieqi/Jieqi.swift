@@ -114,7 +114,9 @@ public struct Jieqi {
             cps.day! -= 1
         } else {
             let date = Jieqi.cal.date(from: cps)!
-            let yesterday = Jieqi.cal.date(bySetting: .day, value: -1, of: date)!
+            var yesterdayCps = DateComponents()
+            yesterdayCps.day = -1
+            let yesterday = Jieqi.cal.nextDate(after: date, matching: yesterdayCps, matchingPolicy: .nextTime)!
             cps = Jieqi.cal.dateComponents([.year, .month, .day], from: yesterday)
         }
     }
@@ -135,7 +137,9 @@ public struct Jieqi {
             cps.day! += 1
         } else {
             let date = Jieqi.cal.date(from: cps)!
-            let tomorrow = Jieqi.cal.date(bySetting: .day, value: 1, of: date)!
+            var tomorrowCps = DateComponents()
+            tomorrowCps.day = 1
+            let tomorrow = Jieqi.cal.nextDate(after: date, matching: tomorrowCps, matchingPolicy: .nextTime)!
             cps = Jieqi.cal.dateComponents([.year, .month, .day], from: tomorrow)
         }
     }
