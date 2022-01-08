@@ -9,6 +9,27 @@ import Foundation
 
 public struct Jieqi {
     public static let cal = Calendar(identifier: .gregorian)
+    public static let chineseCal = Calendar(identifier: .chinese)
+    public static let df:DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .none
+        dateFormatter.calendar = Jieqi.cal
+        
+        return dateFormatter
+    }()
+    
+    public static let chineseDf:DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "zh")
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .none
+        dateFormatter.calendar = Jieqi.chineseCal
+        dateFormatter.dateFormat = "U年MMMd"
+        
+        return dateFormatter
+    }()
     
     public init() {}
     
@@ -146,6 +167,12 @@ public struct Jieqi {
             let (previousJieqi, _) = previousJieqi(at: cps)
             return season(for: previousJieqi)
         }
+    }
+    
+    public func xinwenlianboDateString(_ date:Date) -> String {
+        return Jieqi.df.string(from: date)
+        + "，农历"
+        + Jieqi.chineseDf.string(from: date)
     }
     
     private func season(for jieqi:Name) -> Season {
