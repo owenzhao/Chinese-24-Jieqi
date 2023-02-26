@@ -6,6 +6,10 @@
 //
 
 import Foundation
+#if os(macOS)
+import AppKit
+#endif
+
 
 public struct Jieqi {
     public static let cal = Calendar(identifier: .gregorian)
@@ -31,7 +35,33 @@ public struct Jieqi {
         return dateFormatter
     }()
     
-    public init() {}
+    public static let chineseDf2:DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "zh")
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .none
+        dateFormatter.calendar = Jieqi.chineseCal
+        dateFormatter.dateFormat = "MMMd"
+        
+        return dateFormatter
+    }()
+    
+    public init(_ registerNotification: Bool = false) {
+        if registerNotification {
+            let nc = NotificationCenter.default
+            nc.addObserver(forName: .NSCalendarDayChanged, object: nil, queue: nil, using: updateChineseDate(noti:))
+            nc.addObserver(forName: .NSSystemClockDidChange, object: nil, queue: nil, using: updateChineseDate(noti:))
+            nc.addObserver(forName: .NSSystemTimeZoneDidChange, object: nil, queue: nil, using: updateChineseDate(noti:))
+            
+            #if os(macOS)
+            NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.didWakeNotification, object: nil, queue: nil, using: updateChineseDate(noti:)) 
+            #endif
+        }
+    }
+    
+    private func updateChineseDate(noti: Notification) {
+        NotificationCenter.default.post(name: .updateChineseDate, object: self, userInfo: ["chineseDateString" : chineseDateString(Date())])
+    }
     
     private func getjq(yyyy:Int, mm:Int, dd:Int) -> Name? {
         let mm = mm - 1
@@ -173,6 +203,17 @@ public struct Jieqi {
         return Jieqi.df.string(from: date)
         + "，农历"
         + Jieqi.chineseDf.string(from: date)
+    }
+    
+    public func chineseDateString(_ date:Date) -> String {
+        let cps = Jieqi.cal.dateComponents([.year, .month, .day], from: date)
+        let (nextJieqiName, nextJieqiCps) = nextJieqi(at: cps)
+        
+        if cps == nextJieqiCps {
+            return nextJieqiName.localizedString
+        }
+        
+        return Jieqi.chineseDf2.string(from: date)
     }
     
     private func season(for jieqi:Name) -> Season {
