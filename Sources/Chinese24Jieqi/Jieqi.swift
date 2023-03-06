@@ -207,10 +207,9 @@ public struct Jieqi {
     
     public func chineseDateString(_ date:Date) -> String {
         let cps = Jieqi.cal.dateComponents([.year, .month, .day], from: date)
-        let (nextJieqiName, nextJieqiCps) = nextJieqi(at: cps)
         
-        if cps == nextJieqiCps {
-            return nextJieqiName.localizedString
+        if let jieqi = getjq(yyyy: cps.year!, mm: cps.month!, dd: cps.day!) {
+            return jieqi.localizedString
         }
         
         return Jieqi.chineseDf2.string(from: date)
