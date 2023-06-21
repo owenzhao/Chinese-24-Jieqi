@@ -125,7 +125,7 @@ public struct Jieqi {
             let previousDate = Jieqi.cal.date(from: previousCps)!
             var day = Jieqi.cal.dateComponents([.day], from: previousDate, to: date).day!
             if previousDate < today {
-                result += String.localizedStringWithFormat(format: NSLocalizedString("%d days ago was %@.", bundle: .module, comment: ""), day, previousJieqi.localizedString)
+                result += String.localizedStringWithFormat(NSLocalizedString("%d days ago was %@.", bundle: .module, comment: ""), day, previousJieqi.localizedString)
             } else{
                 result += String.localizedStringWithFormat(NSLocalizedString("%d days later will be %@.", bundle: .module, comment: ""), day, previousJieqi.localizedString)
             }
