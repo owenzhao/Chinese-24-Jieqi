@@ -125,9 +125,9 @@ public struct Jieqi {
             let previousDate = Jieqi.cal.date(from: previousCps)!
             var day = Jieqi.cal.dateComponents([.day], from: previousDate, to: date).day!
             if previousDate < today {
-                result += String(format: NSLocalizedString("%d days ago was %@.", bundle: .module, comment: ""), day, previousJieqi.localizedString)
+                result += String.localizedStringWithFormat(format: NSLocalizedString("%d days ago was %@.", bundle: .module, comment: ""), day, previousJieqi.localizedString)
             } else{
-                result += String(format: NSLocalizedString("%d days later will be %@.", bundle: .module, comment: ""), day, previousJieqi.localizedString)
+                result += String.localizedStringWithFormat(NSLocalizedString("%d days later will be %@.", bundle: .module, comment: ""), day, previousJieqi.localizedString)
             }
             
             result += "\n"
@@ -137,9 +137,9 @@ public struct Jieqi {
             let nextDate = Jieqi.cal.date(from: nextCps)!
             day = Jieqi.cal.dateComponents([.day], from: date, to: nextDate).day!
             if nextDate < today {
-                result += String(format: NSLocalizedString("%@ would be in %d days.", bundle: .module, comment: ""), nextJieqi.localizedString, day)
+                result += String.localizedStringWithFormat(NSLocalizedString("%@ would be in %d days.", bundle: .module, comment: ""), nextJieqi.localizedString, day)
             } else {
-                result += String(format: NSLocalizedString("%@ will be in %d days.", bundle: .module, comment: ""), nextJieqi.localizedString, day)
+                result += String.localizedStringWithFormat(NSLocalizedString("%@ will be in %d days.", bundle: .module, comment: ""), nextJieqi.localizedString, day)
             }
         }
         
